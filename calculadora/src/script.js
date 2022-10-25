@@ -1,3 +1,6 @@
+console.log("hola")
+
+
 let runningTotal = 0;
 let buffer = "0";
 let previousOperator;
@@ -84,9 +87,11 @@ function handleNumber(numberString){
 }
 
 function init(){
-    document.querySelector('.calc-buttons').addEventListener('click', function(event){
+    document.querySelector('.calc-button').addEventListener('click', function(event){
         buttonClick(event.target.innerText);
     })
+    console.log("se ejecuto funcion init")
 }
 
 init();
+
