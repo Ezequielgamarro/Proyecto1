@@ -1,6 +1,5 @@
 console.log("hola")
 
-
 let runningTotal = 0;
 let buffer = "0";
 let previousOperator;
@@ -87,10 +86,21 @@ function handleNumber(numberString){
 }
 
 function init(){
-    document.querySelector('.calc-button').addEventListener('click', function(event){
+    /* document.querySelector('.calc-button').addEventListener('click', function(event){
         buttonClick(event.target.innerText);
+        console.log('btn clicked', event)
+    }) */
+
+    // Array.prototype.slice.call() convierte un elemento a ARRAY. En este caso queremos convertir el elemento que devuelve "document.getElementsByClassName('calc-button')", que es un HTML Collection.
+    const buttons = Array.prototype.slice.call( document.getElementsByClassName('calc-button') );
+    
+    // recorremos el array buttons usando la funcion forEach
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function(event) {
+            buttonClick(event.target.innerText);
+            console.log('btn clicked');
+        })
     })
-    console.log("se ejecuto funcion init")
 }
 
 init();
